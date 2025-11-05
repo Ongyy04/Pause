@@ -1,0 +1,288 @@
+/* Base tokens */
+/* [수정] RefCode의 색상 팔레트로 전체 교체 */
+:root{
+  --bg: #FCDCB6;
+  --ink: #1a1a1a;
+  --ink-weak:#333333;
+  --brand:#FE936F;
+  --navy:#1a1a1a; /* 어두운 텍스트/제목용 */
+  --card: rgba(255, 255, 255, 0.5); /* Glassmorphism */
+  --border: rgba(255, 255, 255, 0.3);
+  --success:#FE936F;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  /* [수정] Pretendard 폰트 적용 */
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.65;
+}
+
+.container{
+  width:min(1120px, 92%);
+  margin-inline:auto;
+}
+
+.section{
+  padding:80px 0;
+}
+/* [수정] section--alt 배경색 변경 */
+.section--alt{
+  background:rgba(255, 255, 255, 0.3);
+}
+.section-title{
+  font-size: clamp(1.4rem, 1rem + 1.8vw, 2.2rem);
+  margin:0 0 28px;
+  color:var(--navy);
+}
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  /* [수정] 헤더 배경을 메인 배경과 어울리게 변경 */
+  background:rgba(252, 220, 182, 0.8); 
+  backdrop-filter: saturate(1.4) blur(8px);
+  border-bottom:1px solid var(--border);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:.6rem; text-decoration:none;
+}
+/* [추가] 이미지 로고 스타일 */
+.brand-logo{
+  height: 32px; /* 로고 높이 */
+  width: auto;
+}
+/* [삭제] 기존 텍스트 로고 스타일 */
+
+.nav-links{ display:flex; align-items:center; gap:20px}
+.nav-links a{
+  text-decoration:none; color:var(--ink-weak); font-weight:500;
+}
+.nav-links a:hover{ color:var(--navy)}
+
+.hamburger{
+  display:none; background:none; border:0; padding:6px; cursor:pointer;
+}
+.hamburger span{ display:block; width:24px; height:2px; background:var(--navy); margin:5px 0; transition:transform .2s ease}
+
+/* Mobile menu */
+.mobile-menu{
+  display:none; flex-direction:column; gap:16px; padding:16px 4%; border-bottom:1px solid var(--border);
+  background:var(--bg);
+}
+.mobile-menu a{ text-decoration:none; color:var(--ink)}
+
+/* Hero */
+.hero{
+  position:relative; min-height:84vh; display:grid; place-items:center; overflow:hidden;
+  /* [수정] 배경 및 텍스트 색상 변경 */
+  color:var(--ink); 
+  background: linear-gradient(120deg, #FCDCB6, #FE936F, #FCDCB6);
+  background-size: 200% 200%;
+  animation: pulse-bg 10s ease infinite;
+  z-index: 0;
+}
+/* [추가] RefCode의 배경 애니메이션 */
+@keyframes pulse-bg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero__inner{ position:relative; z-index:1; padding:120px 0 80px}
+.hero__title{
+  font-size: clamp(2rem, 1.6rem + 2.5vw, 3.4rem);
+  margin:0 0 10px;
+}
+/* [수정] 부제 텍스트 색상 변경 */
+.hero__subtitle{ margin:0 0 22px; color:var(--ink-weak)}
+.hero__cta{ display:flex; gap:12px; flex-wrap:wrap}
+#networkCanvas{
+  position:absolute; inset:0; width:100%; height:100%;
+  /* [추가] 캔버스가 그라데이션과 잘 혼합되도록 */
+  opacity: 0.8;
+  mix-blend-mode: multiply; 
+}
+
+.scroll-down{
+  position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+  /* [수정] 스크롤 텍스트 색상 변경 */
+  color:var(--ink-weak); 
+  text-decoration:none; font-size:18px; opacity:.8;
+}
+
+/* Buttons */
+.btn{
+  --btn-bg: var(--brand);
+  --btn-ink:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border-radius:10px; text-decoration:none;
+  background:var(--btn-bg); color:var(--btn-ink); border:1px solid transparent;
+  font-weight:600; transition: transform .12s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn:hover{ transform: translateY(-1px) scale(1.02)}
+/* [수정] 고스트 버튼 색상 변경 */
+.btn--ghost{
+  --btn-bg: transparent; --btn-ink:var(--ink-weak);
+  border: 2px solid var(--ink-weak);
+}
+.btn--ghost:hover{
+  background: var(--ink-weak);
+  color: #fff;
+}
+.btn--lg{ padding:14px 20px; border-radius:12px}
+.btn--sm{ padding:8px 12px; border-radius:8px}
+
+/* Grid helpers */
+.grid{
+  display:grid; gap:24px;
+}
+.two-col{ grid-template-columns: 1.2fr 1fr}
+.three-col{ grid-template-columns: repeat(3, 1fr)}
+
+/* Cards */
+.card{
+  /* [수정] Glassmorphism 효과 적용 */
+  background:var(--card); 
+  padding:22px; border-radius:16px;
+  border:1px solid var(--border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover{ 
+  transform: translateY(-4px); 
+  /* [수정] 그림자 효과 변경 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.card .icon{ font-size:28px; margin-bottom:8px}
+
+.policy-card{
+  /* [수정] Glassmorphism 효과 적용 */
+  background:var(--card); 
+  border:1px solid var(--border); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius:14px; padding:22px;
+  box-shadow: 0 6px 20px rgba(27,38,59,.06);
+}
+
+.illust-wrap{ display:grid; place-items:center}
+.illust{ width:100%; max-width:420px}
+
+/* Tech diagram */
+.tech-diagram svg{
+  width:100%; height:auto;
+}
+.box rect{
+  fill:var(--card); stroke:var(--brand); stroke-width:2;
+  filter: drop-shadow(0 4px 14px rgba(0,0,0,.06));
+}
+.box text{ fill:var(--navy); font-weight:600; text-anchor:middle; dominant-baseline:middle}
+.flow{
+  stroke:var(--brand); stroke-width:2.5;
+  stroke-dasharray:160; stroke-dashoffset:160;
+  animation: draw 2.4s ease forwards;
+}
+@keyframes draw{
+  to{ stroke-dashoffset:0 }
+}
+.tech-note{ color:var(--ink-weak)}
+
+/* [추가] Team 래퍼 (2-col 중앙 정렬) */
+.team-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.team-wrapper .founder-card {
+  width: min(100%, 360px); /* 최대 너비 지정 */
+}
+
+/* Founder cards */
+.founder-card{
+  background:var(--card); /* 카드 배경 통일 */
+  border:1px solid var(--border); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius:16px; overflow:hidden;
+  transform-style: preserve-3d; perspective: 1000px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.founder-card:hover{ 
+  transform: translateY(-4px) rotateX(2deg) rotateY(-2deg); 
+  box-shadow: 0 16px 32px rgba(0,0,0,.08)
+}
+.founder-card img{ width:100%; height:auto; display:block}
+.founder-info{ padding:14px 16px}
+.founder-info h3{ margin:4px 0 4px}
+.founder-info p{ margin:0; color:var(--ink-weak)}
+
+/* [추가] Founder 상세 정보 스타일 */
+.founder-info .founder-detail {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--ink-weak);
+}
+
+
+/* Contact */
+.contact-form{
+  max-width:720px; margin-inline:auto; 
+  background:var(--card); /* 카드 배경 통일 */
+  border:1px solid var(--border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding:24px; border-radius:16px;
+}
+.form-row{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px}
+input, textarea{
+  border:1px solid var(--border); 
+  background: rgba(255,255,255,0.3); /* 입력창 배경 */
+  border-radius:10px; padding:12px 14px; font:inherit;
+}
+input:focus, textarea:focus{ 
+  outline:3px solid var(--brand); 
+  border-color:var(--brand);
+  background: #fff;
+}
+.form-status{ min-height:1.4em; color:var(--navy); margin-top:8px; font-weight:600}
+
+/* Footer */
+.footer{
+  border-top:1px solid var(--border); padding:28px 0; 
+  background:rgba(252, 220, 182, 0.5); /* 푸터 배경 */
+}
+.footer__inner{ display:flex; align-items:center; justify-content:space-between; gap:16px}
+.footer a{ color:var(--navy); text-decoration:none}
+.footer a:hover{ text-decoration:underline}
+
+/* Reveal animation */
+.reveal{ opacity:0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease }
+.reveal.is-visible{ opacity:1; transform:none }
+
+/* Responsive */
+@media (max-width: 1024px){
+  .two-col{ grid-template-columns: 1fr }
+}
+@media (max-width: 768px){
+  .nav-links{ display:none }
+  .hamburger{ display:block }
+  .mobile-menu.show{ display:flex }
+  .hero__cta{ flex-direction:column; align-items:flex-start }
+  .three-col{ grid-template-columns: 1fr }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important }
+}

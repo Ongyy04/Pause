@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PULSE - 조직의 맥박을 읽다, 변화의 리듬을 세우다.</title>
+  <meta name="description" content="PULSE — 조직의 맥박을 읽다, 변화의 리듬을 세우다. 익명화된 데이터를 통해 조직의 집단 정서를 진단하는 AI 솔루션." />
+  
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header" aria-label="Global Navigation">
+    <div class="container nav">
+      <a href="#hero" class="brand" aria-label="PULSE Home">
+        <img src="logo.png" alt="PULSE 로고" class="brand-logo">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#tech">Tech</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#team">Team</a>
+        <a href="#contact" class="btn btn--sm">Request Demo</a>
+      </nav>
+      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="false" aria-label="Mobile Menu">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#tech">Tech</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#team">Team</a>
+      <a href="#contact" class="btn">Request Demo</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero" aria-label="Hero">
+      <canvas id="networkCanvas" aria-hidden="true"></canvas>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1 class="hero__title">Diagnose, Don’t Spy.</h1>
+          <p class="hero__subtitle">조직의 맥박을 읽다, 변화의 리듬을 세우다.</p>
+          <div class="hero__cta">
+            <a href="#contact" class="btn btn--lg" aria-label="Request a demo">Request Demo</a>
+            <a href="#about" class="btn btn--ghost btn--lg" aria-label="Learn more about PULSE">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-down" href="#about" aria-label="Scroll to About">▼</a>
+    </section>
+
+    <section id="about" class="section section--alt" aria-label="About PULSE">
+      <div class="container grid two-col">
+        <div class="reveal">
+          <h2>감시가 아닌, 진단</h2>
+          <p>펄스는 개인을 추적하지 않는다. 우리는 조직의 건강을 <strong>비식별·익명화된 데이터</strong>로 진단하고, 리더십이 <strong>시스템적 개입</strong>을 할 수 있도록 돕는다.</p>
+          <ul class="checklist">
+            <li>Privacy by Design</li>
+            <li>조직 단위의 집단 정서·리스크 탐지</li>
+            <li>행동보다 환경을 바꾸는 인사이트</li>
+          </ul>
+        </div>
+        <div class="reveal illust-wrap">
+          <svg class="illust" viewBox="0 0 300 200" role="img" aria-label="추상적 네트워크 일러스트">
+            <defs>
+              <linearGradient id="grad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0%" stop-color="var(--brand)"/>
+                <stop offset="100%" stop-color="var(--navy)"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" stroke="url(#grad)" stroke-width="2">
+              <circle cx="50" cy="60" r="10"/><circle cx="120" cy="30" r="8"/><circle cx="220" cy="50" r="12"/>
+              <circle cx="260" cy="140" r="9"/><circle cx="150" cy="160" r="11"/><circle cx="70" cy="130" r="7"/>
+              <line x1="50" y1="60" x2="120" y2="30"/><line x1="120" y1="30" x2="220" y2="50"/>
+              <line x1="70" y1="130" x2="50" y2="60"/><line x1="150" y1="160" x2="220" y2="50"/>
+              <line x1="260" y1="140" x2="150" y2="160"/><line x1="260" y1="140" x2="220" y2="50"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section" aria-label="Key Features">
+      <div class="container">
+        <h2 class="section-title reveal">핵심 기능</h2>
+        <div class="grid three-col">
+          <article class="card reveal" aria-label="실시간 정서 진단">
+            <div class="icon">🧭</div>
+            <h3>실시간 정서 진단</h3>
+            <p>메일·메신저·게시글 등 익명화된 텍스트를 기반으로 조직의 정서를 지속 측정.</p>
+          </article>
+          <article class="card reveal" aria-label="집단 리스크 탐지">
+            <div class="icon">⚠️</div>
+            <h3>집단 리스크 탐지</h3>
+            <p>번아웃·무기력 등 조직 단위 리스크를 조기 경보로 포착.</p>
+          </article>
+          <article class="card reveal" aria-label="자동 건강 리포트">
+            <div class="icon">📈</div>
+            <h3>자동 건강 리포트</h3>
+            <p>리더십을 위한 주간/월간 리포트를 자동 생성하고 변화를 추적.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="section section--alt" aria-label="Technology">
+      <div class="container">
+        <h2 class="section-title reveal">데이터의 심장</h2>
+        <div class="tech-diagram reveal" aria-hidden="false">
+          <svg viewBox="0 0 900 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="LLM 파이프라인">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" />
+              </marker>
+            </defs>
+            <g class="box" transform="translate(20,40)">
+              <rect width="180" height="120" rx="12"></rect>
+              <text x="90" y="68">익명화 입력</text>
+            </g>
+            <g class="box" transform="translate(240,40)">
+              <rect width="180" height="120" rx="12"></rect>
+              <text x="90" y="68">전처리·토큰화</text>
+            </g>
+            <g class="box" transform="translate(460,40)">
+              <rect width="180" height="120" rx="12"></rect>
+              <text x="90" y="68">LLM 분석</text>
+            </g>
+            <g class="box" transform="translate(680,40)">
+              <rect width="180" height="120" rx="12"></rect>
+              <text x="90" y="68">집단 메트릭</text>
+            </g>
+            <line class="flow" x1="200" y1="100" x2="240" y2="100" marker-end="url(#arrow)"></line>
+            <line class="flow" x1="420" y1="100" x2="460" y2="100" marker-end="url(#arrow)"></line>
+            <line class="flow" x1="640" y1="100" x2="680" y2="100" marker-end="url(#arrow)"></line>
+          </svg>
+        </div>
+        <p class="tech-note reveal">모든 분석은 <strong>개인 식별 불가</strong> 상태에서 이루어지며, 결과는 조직 단위로만 제공된다.</p>
+      </div>
+    </section>
+
+    <section id="philosophy" class="section" aria-label="Ethical Principles">
+      <div class="container">
+        <h2 class="section-title reveal">윤리 원칙</h2>
+        <div class="grid three-col">
+          <article class="policy-card reveal">
+            <h3>Privacy by Design</h3>
+            <p>설계 단계부터 프라이버시를 기본값으로 채택.</p>
+          </article>
+          <article class="policy-card reveal">
+            <h3>K-익명성</h3>
+            <p>충분한 집단 크기 기준을 충족하지 않으면 보고하지 않음.</p>
+          </article>
+          <article class="policy-card reveal">
+            <h3>Non-identifiability</h3>
+            <p>개인 재식별이 불가능하도록 다중 비식별 처리.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section section--alt" aria-label="Team">
+      <div class="container">
+        <h2 class="section-title reveal">리듬을 만든 사람들</h2>
+        <div class="team-wrapper reveal">
+          <article class="founder-card" aria-label="오은서">
+            <img src="https://placehold.co/480x360/FE936F/white?text=Eunseo" loading="lazy" alt="오은서 사진" />
+            <div class="founder-info">
+              <h3>오은서</h3>
+              <p>Data Science Track</p>
+              <p class="founder-detail">경희대학교 소프트웨어융합학과 2학년</p>
+            </div>
+          </article>
+          <article class="founder-card" aria-label="서혜인">
+            <img src="https://placehold.co/480x360/FE936F/white?text=Hyein" loading="lazy" alt="서혜인 사진" />
+            <div class="founder-info">
+              <h3>서혜인</h3>
+              <p>Robot Vision Track</p>
+              <p class="founder-detail">경희대학교 소프트웨어융합학과 2학년</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact" aria-label="Contact form">
+      <div class="container">
+        <h2 class="section-title reveal">데모 요청</h2>
+        <form id="contactForm" class="contact-form reveal" novalidate>
+          <div class="form-row">
+            <label for="name">이름</label>
+            <input id="name" name="name" type="text" placeholder="이름" aria-required="true" required />
+          </div>
+          <div class="form-row">
+            <label for="email">이메일</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" aria-required="true" required />
+          </div>
+          <div class="form-row">
+            <label for="org">조직명</label>
+            <input id="org" name="org" type="text" placeholder="회사/기관명" />
+          </div>
+          <div class="form-row">
+            <label for="msg">메시지</label>
+            <textarea id="msg" name="msg" rows="4" placeholder="관심 영역, 규모, 도입 일정 등"></textarea>
+          </div>
+          <button type="submit" class="btn btn--lg" aria-label="Submit demo request">Send Request</button>
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Footer">
+    <div class="container footer__inner">
+      <p>© 2025 PULSE. All rights reserved.</p>
+      <div class="social">
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="GitHub">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
